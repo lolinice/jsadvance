@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>06_面试题</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /*
+  测试题1
+   */
+  var A = function() {
+
+  }
+  var b = new A()
+  A.prototype.n = 1 // 给过显式原型给原型对象添加属性, 所有对象都有影响
+
+  A.prototype = {// 改变显式原型指向, 对前面创建的对象没有影响
+    n: 2,
+    m: 3
+  }
+
+  var c = new A()
+  console.log(b.n, b.m, c.n, c.m)
+
+
+  /*
+   测试题2
+   */
+  var F = function(){};
+  Object.prototype.a = function(){
+    console.log('a()')
+  };
+  Function.prototype.b = function(){
+    console.log('b()')
+  };
+  var f = new F();
+  f.a()
+  F.a()
+  F.b()
+  f.b()  // f instanceof Function
+
+</script>
+</body>
+</html>
